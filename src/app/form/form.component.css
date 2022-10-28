@@ -1,0 +1,119 @@
+
+    .form-content{
+    min-height: calc(100%-80px);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0px solid green;
+    }
+    
+    .form{
+    width: 65%;
+    padding: 44px 60px;
+
+    box-shadow: 0px 3px 6px palegreen;
+    border: 1px solid blue;
+    border-radius: 8px;
+    opacity: 7;
+    }
+    .form-head{
+    font: normal normal bold 24px/37px Roboto;
+    letter-spacing: 0px;
+    color: #42515F;
+    text-transform: capitalize;
+    opacity: 1;
+    padding-bottom: 20px;
+    
+    }
+    
+    .row-content{
+    
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    align-items: center;
+    border: 0px solid green;
+    }
+    
+    .label{
+    min-width: 140px;
+    }
+    label{
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+    }
+    
+ 
+    .input{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid black;
+    border-radius: 4px;
+    resize: vertical;
+    }
+
+    .profile-radio-content{
+    display: flex;
+    flex-direction: row;
+    }
+    
+
+    .profile{
+    width: 50px;
+    border-radius: 50%;
+    margin-left: 12px;
+    }
+
+    select{
+        padding: 12px;
+        border: 1px solid gray;
+        border-radius: 4px;
+        resize: vertical;
+        font: normal normal normal 16px Roboto;
+        letter-spacing: 0px;
+        color: black;
+        background-color: transparent;
+    }
+
+    .buttonParent{
+        display: flex;
+        margin-bottom: 10px;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+    .button{
+        font-size: 20px;
+        font-family: Roboto;
+        letter-spacing: 0px;
+        color: black;
+        opacity: 1;
+        background: transparent;
+        border: none;
+        font-weight: 400;
+        min-width: 140px;
+        padding: 7px 7px;
+        border: 1px solid darkolivegreen;
+        cursor: pointer;
+        border-radius: 10px;
+        
+    }
+    .alert{
+        color: blue;
+        margin-bottom: 15px;
+        text-align: left;
+    }
+    .alert-danger{
+        background-color: #42515F;
+    }
+    .text-error{
+    
+        margin-left: 10px;
+        font-size: 12px;
+        font-style: italic;
+        color: #42515F;
+        white-space: nowrap;
+    }
+    .mat-slider {
+        width: 300px;
+      }

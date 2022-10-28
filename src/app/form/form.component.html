@@ -1,0 +1,109 @@
+
+<html>
+    <head>
+    
+        <title>Employee payroll form</title>
+    </head>
+    
+    <body>
+       <!--Two way binding using ngModel to stores the required user name in a variable-->
+      <div class="form-content">
+        <form class="form" #form='ngForm' >
+            <div class="form-head">Employee Payroll form</div>
+            <div class="row-content">
+                <label class="label next" for="name">Name</label>
+    
+                <input type="text" name="Name"  #name="ngModel" minlength="3" pattern="^[A-Z]{6}"  class="input required" ngModel 
+                placeholder="Your Name " [(ngModel)]="employee.name">
+            <span class="text-error" for="text" *ngIf="name.invalid" > name is invalid</span>
+                
+            </div>
+    
+            <div class="row-content">
+    
+              <label  class="label text" for="profile">Profile image</label>
+              <div class="profile-radio-content">
+                  <label>
+                      <input type="radio" id="profile1" name="profile" value="/assets/profile-images/Ellipse -2.png" [(ngModel)]="employee.profilePic" required>
+                      <img class="profile" id="image1" src="/assets/profile-images/Ellipse -2.png" alt=""> 
+                  </label>
+          
+                  <label>
+                      <input type="radio" id="profile2" name="profile" value="/assets/profile-images/Ellipse -4.png" [(ngModel)]="employee.profilePic" required>
+                      <img class="profile" id="image2" src="/assets/profile-images/Ellipse -4.png" alt="" width="80" height="60"> 
+                  </label>
+          
+                  <label>
+                      <input type="radio" id="profile3" name="profile" value="/assets/profile-images/Ellipse -3.png" [(ngModel)]="employee.profilePic" required>
+                      <img class="profile" id="image3" src="/assets/profile-images/Ellipse -3.png" alt="" width="80" height="60"> 
+                  </label>
+          
+                  <label>
+                      <input type="radio" id="profile4" name="profile" value="/assets/profile-images/Ellipse -1.png" [(ngModel)]="employee.profilePic" required>
+                      <img class="profile" id="image1" src="/assets/profile-images/Ellipse -1.png" alt="" width="80" height="60"> 
+                  </label>
+              </div>
+              
+          </div>
+          <div class="row-content">
+            <label class="label text" for="gender">Gender</label>
+            <div>
+            <input type="radio" id="male" name="gender" value="male"  [(ngModel)]="employee.gender">
+            <label class="text" for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female"  [(ngModel)]="employee.gender">
+            <label class="text" for="female">Female</label>
+            </div>
+        </div>
+
+        <!-- <div class="row-content">
+            <label class="label text" for="department">Department</label>
+            <div *ngFor="let departName of depart2,let i = index ">
+                <mat-checkbox [value]="this.employee.department[i]" (change)="checkBoxChange(departName)" (ngModel)="departName" 
+                    [ngModelOptions]="{standalone: true}" ngDefaultControl> {{departName}} </mat-checkbox>
+            </div>
+        </div> -->
+        <div class="row-content">
+            <label class="label text" for="department">Department</label>
+            <div *ngFor="let departName of depart2,let i = index ">
+                <input type="checkbox" class="checkbox" [value]="this.employee.department[i]" (change)="checkBoxChange(departName)" (ngModel)="departName" 
+                    [ngModelOptions]="{standalone: true}" ngDefaultControl> {{departName}} 
+            </div>
+        </div>
+
+        <div class="row-content"> 
+            <label class="label text" for="salary">Choose your salary : </label>
+            <mat-slider class="input" type="range" name="slary" id="salary" min="300000" max="500000" step="100" value="400000"  thumbLabel
+            [displayWith]="formatLabel"
+            tickInterval="1000"
+            step="1000"
+            min="0"
+            max="100000"[(ngModel)]="employee.salary"></mat-slider>
+          
+            <output class="salary-output text" for="salary"></output> -->
+       
+        </div>
+       
+    
+        <div class="row-content">
+            <label class="label text" for="Date"> Date</label>
+            <input type="date" class="Date" id="Date" name="date" [(ngModel)]="employee.date" required>
+        </div>
+        <br>
+        <div class="row-content">
+            <label class="label text" for="notes">Notes</label>
+            <textarea  class="input" name="Notes" id="notes" placeholder="" style="height: 100px;" [(ngModel)]="employee.note" [ngModelOptions]="{standalone: true}"></textarea>
+        </div>
+        <div>
+            <button  (click)="onSubmit()">Submit</button>
+            <button (click)="onCancel()" >Cancel</button>
+        </div>
+     
+        </form>
+    </div>
+    
+    
+    </body>
+    </html>
+
+
+    <!-- [(ngModel)]="employee.date"  [ngModelOptions]="{standalone: true}"ngDefaultControl -->

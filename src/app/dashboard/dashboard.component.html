@@ -1,0 +1,39 @@
+<div >
+  <div class="header-content ">
+    <div class="emp-detail-text">
+      Employee Details<br>
+ 
+    </div>
+    <!-- when a user click on add user button then the onAddUser function is called in dashboard component -->
+    <button class="add-button" (click)="onAddUser()">Add User</button>
+  </div>
+
+  <div class="table-main">
+    <table id="table-display" class="table">
+      <tr>
+        <!--Table header-->
+
+  
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Profile pic</th>
+        <th>Department</th>
+        <th>Salary</th>
+        <th> Date</th>
+        <th>note</th>
+      </tr>
+
+<tr *ngFor="let employee of allEmp"> 
+
+  <td>{{employee.name}}</td>
+  <td>{{employee.gender}}</td>
+  <td>{{employee.profilePic}}</td>
+  <td>{{employee.department}}</td>
+  <td>{{employee.salary}}</td>
+  <td>{{employee.date}}</td>
+  <td>{{employee.note}}</td>
+</tr>
+
+    </table>
+  </div>
+</div>
