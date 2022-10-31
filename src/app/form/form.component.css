@@ -82,21 +82,23 @@
         justify-content: space-between;
         margin-top: 20px;
     }
-    .button{
+    .button {
         font-size: 20px;
         font-family: Roboto;
         letter-spacing: 0px;
-        color: black;
+        color: #42515f;
         opacity: 1;
-        background: transparent;
-        border: none;
+        background: #E2E2E2 0% 0% no-repeat padding-box;
+        border: 2px solid #969696;
+        border-radius: 5px;
         font-weight: 400;
         min-width: 140px;
         padding: 7px 7px;
-        border: 1px solid darkolivegreen;
+        border: 1px solid #707070;
         cursor: pointer;
-        border-radius: 10px;
-        
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-top : 10px;
     }
     .alert{
         color: blue;
@@ -117,3 +119,62 @@
     .mat-slider {
         width: 300px;
       }
+      .buttonParent {
+        display: flex;
+        margin-bottom: 10px;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+  
+    .submit-reset {
+        width: 100%;
+        display: flex;
+        flex-grow: 1;
+        flex-direction: row-reverse;
+        justify-content: space-around;
+      }
+
+      .submitButton {
+        border: 1px solid #969696;
+        background: #e2e2e2 0% 0% no-repeat padding-box;
+        margin-left: 400px;
+        opacity: 1;
+        
+        border-radius: 5px;
+      }
+
+ .cancelButton{
+    border: 1px solid #969696;
+        background: #e2e2e2 0% 0% no-repeat padding-box;
+        margin-left: -10px;
+        opacity: 1;
+        
+        border-radius: 5px; 
+ }
+    
+      .checkbox{
+        margin: 12px 0; 
+        text-align: left;
+font: small  18px/24px Roboto;
+letter-spacing: 0px;
+color: #42515F;
+opacity: 1;
+padding-left: 0.4em;
+      }
+
+      .example-full-width {
+        width: 100%;
+      }
+      
+      .mat-slider {
+        width: 300px;
+      }
+      .label{
+        min-width: 140px;
+        }
+        label{
+        padding: 12px 12px 12px 0;
+        display: inline-block;
+        }
+        

@@ -13,7 +13,7 @@
       <tr>
         <!--Table header-->
 
-  
+  <th>id</th>
         <th>Name</th>
         <th>Gender</th>
         <th>Profile pic</th>
@@ -21,19 +21,26 @@
         <th>Salary</th>
         <th> Date</th>
         <th>note</th>
+        <th>Actions</th>
       </tr>
 
 <tr *ngFor="let employee of allEmp"> 
-
+<td>{{employee.id}}</td>
   <td>{{employee.name}}</td>
   <td>{{employee.gender}}</td>
-  <td>{{employee.profilePic}}</td>
-  <td>{{employee.department}}</td>
+  <td><img [src]="employee.profilePic"  ></td>
+  <td class="dept-label">{{employee.department}}</td>
   <td>{{employee.salary}}</td>
   <td>{{employee.date}}</td>
   <td>{{employee.note}}</td>
-</tr>
 
+<td class="action-icon">
+  
+  <img src="../assets/edit.svg" (click)="editById(employee.id)">
+  <img src="../assets/delete.svg" (click)="deleteEmp(employee.id)">
+ 
+</td>
+</tr>
     </table>
   </div>
 </div>

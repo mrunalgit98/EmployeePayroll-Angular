@@ -22,13 +22,13 @@ export class DashboardComponent implements OnInit {
  
   ngOnInit() {
 
-    this.getAll();
+     this.getAll();
 
   }
 
 onAddUser(){
 
-  this.router.navigate(["form"]);;
+  this.router.navigate(["form"]);
 
 }
 
@@ -38,7 +38,20 @@ getAll(){
     console.log(data);
      this.allEmp=data;
     this.countNumber=this.allEmp.length;
-  })
+  });
 }
 
+
+editById(Id:number){
+  this.router.navigate(['update',Id]);
+}
+
+
+deleteEmp(Id:number ){
+  console.log("id number",Id)
+  this.service.deleteById(Id).subscribe((data:any) =>{
+    this.ngOnInit();
+    this.router.navigate(['dashboard']);      
+  });
+}
 }

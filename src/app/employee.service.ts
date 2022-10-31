@@ -21,6 +21,20 @@ add(employee :any){
 
 getAll(){
   return this.http.get("http://localhost:8081/getEmployee");
+
 }
+
+getEmployeeById(Id:number){
+  return this.http.get("http://localhost:8081/getEmployee/"+Id);
+}
+
+updateEmployeeById(employee:any, Id:number){
+  return this.http.put("http://localhost:8081/updateEmployee/"+Id, employee);
+}
+
+deleteById(employeeId:number){
+  return this.http.delete("http://localhost:8081/delete/"+employeeId);
+}
+
 
 }

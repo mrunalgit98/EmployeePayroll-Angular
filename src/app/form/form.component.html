@@ -12,9 +12,10 @@
             <div class="form-head">Employee Payroll form</div>
             <div class="row-content">
                 <label class="label next" for="name">Name</label>
-    
-                <input type="text" name="Name"  #name="ngModel" minlength="3" pattern="^[A-Z]{6}"  class="input required" ngModel 
-                placeholder="Your Name " [(ngModel)]="employee.name">
+                <mat-form-field class="example-full-width" appearance="outline">
+                <input matInput type="text" name="Name"  #name="ngModel" minlength="3" pattern="^[A-Z]{1}[a-z]{5}"  class="input required" ngModel 
+                placeholder="Your Name " [(ngModel)]="employee.name" [ngModelOptions] = "{standalone: true}">
+            </mat-form-field>
             <span class="text-error" for="text" *ngIf="name.invalid" > name is invalid</span>
                 
             </div>
@@ -65,12 +66,12 @@
         <div class="row-content">
             <label class="label text" for="department">Department</label>
             <div *ngFor="let departName of depart2,let i = index ">
-                <input type="checkbox" class="checkbox" [value]="this.employee.department[i]" (change)="checkBoxChange(departName)" (ngModel)="departName" 
-                    [ngModelOptions]="{standalone: true}" ngDefaultControl> {{departName}} 
+                <mat-checkbox class="checkbox" [value]="this.employee.department[i]" (change)="checkBoxChange(departName)" (ngModel)="departName"  (ngModel)="departName" 
+                    [ngModelOptions]="{standalone: true}" ngDefaultControl> {{departName}} </mat-checkbox>
             </div>
         </div>
 
-        <div class="row-content"> 
+        <!-- <div class="row-content"> 
             <label class="label text" for="salary">Choose your salary : </label>
             <mat-slider class="input" type="range" name="slary" id="salary" min="300000" max="500000" step="100" value="400000"  thumbLabel
             [displayWith]="formatLabel"
@@ -79,31 +80,115 @@
             min="0"
             max="100000"[(ngModel)]="employee.salary"></mat-slider>
           
-            <output class="salary-output text" for="salary"></output> -->
+            <output class="salary-output text" for="salary"></output> 
        
-        </div>
-       
-    
+        </div> -->
         <div class="row-content">
-            <label class="label text" for="Date"> Date</label>
-            <input type="date" class="Date" id="Date" name="date" [(ngModel)]="employee.date" required>
+        <label class="label text" for="salary">Choose your Salary:</label>
+
+        <select name="Salary" id="Salary" [(ngModel)]="employee.salary">
+          <option value="100000">100000</option>
+          <option value="200000">200000</option>
+          <option value="400000">400000</option>
+          <option value="500000">500000</option>
+        </select>
+</div>
+  <!-- <div>
+    <label class="label text" for="salary">Choose your salary : </label>
+    <mat-form-field>
+        <mat-label>Topic</mat-label>
+        <mat-select>
+             <mat-option value="a">a</mat-option>
+            <mat-option value="a">a</mat-option>
+            <mat-option value="a">a</mat-option>  
+
+        </mat-select>
+    </mat-form-field>
+  </div> -->
+
+        <div class="row-content">
+            <label class="label text" for="startDate" [(ngModel)]="employee.date">Start Date</label>
+            <div>
+                <select id="day" name="Day">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                </select>
+                <select name="Month" id="month">
+                    <option value="Jan">January</option>
+                    <option value="Feb">Febuary</option>
+                    <option value="Mar">March</option>
+                    <option value="Apr">April</option>
+                    <option value="May">May</option>
+                    <option value="Jun">June</option>
+                    <option value="Jul">July</option>
+                    <option value="Aug">August</option>
+                    <option value="Sep">September</option>
+                    <option value="Oct">October</option>
+                    <option value="Nov">November</option>
+                    <option value="Dec">December</option>
+                </select>
+                <select name="Year" id="year">
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
+                </select>
+            </div>
         </div>
+
         <br>
         <div class="row-content">
             <label class="label text" for="notes">Notes</label>
-            <textarea  class="input" name="Notes" id="notes" placeholder="" style="height: 100px;" [(ngModel)]="employee.note" [ngModelOptions]="{standalone: true}"></textarea>
+            <textarea  class="input" name="Notes" id="notes" placeholder="" style="height: 100px;"
+             [(ngModel)]="employee.note" [ngModelOptions]="{standalone: true}"></textarea>
         </div>
-        <div>
-            <button  (click)="onSubmit()">Submit</button>
-            <button (click)="onCancel()" >Cancel</button>
+
+
+        <div class="buttonParent">
+            <button mat-button type="Cancel" class=" button  cancelButton" (click)="onCancel()">Cancel</button>
+       <div class="submit-reset">
+            
+             <button mat-button type="reset" class="button resetButton">Reset</button>
+            <button  mat-button type="Submit" class="button submitButton" *ngIf="this.Id!=null" (click)="updateEmployeeData()">Update</button>
+            <button mat-button type="submit" class="button submitButton" *ngIf="this.Id==null" (click)="onSubmit()">Submit</button>
         </div>
-     
-        </form>
+        </div>
+      
+
+      </form>
     </div>
     
     
     </body>
     </html>
 
-
-    <!-- [(ngModel)]="employee.date"  [ngModelOptions]="{standalone: true}"ngDefaultControl -->

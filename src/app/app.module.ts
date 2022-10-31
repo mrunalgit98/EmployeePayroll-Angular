@@ -11,6 +11,11 @@ import { FormComponent } from './form/form.component';
  import {MatSliderModule} from '@angular/material/slider';
  import {MatCheckboxModule} from '@angular/material/checkbox';
  import {MatFormFieldModule} from '@angular/material/form-field';
+ import {MatIconModule} from '@angular/material/icon';
+ import {MatSelectModule} from '@angular/material/select';
+ import {MatInputModule} from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +32,11 @@ import { FormComponent } from './form/form.component';
      HttpClientModule,
      MatSliderModule,
      MatCheckboxModule,
-     MatFormFieldModule
+     MatFormFieldModule,
+     MatIconModule,
+     MatSelectModule,
+     MatInputModule,
+     BrowserAnimationsModule
     
   ],
   providers: [],

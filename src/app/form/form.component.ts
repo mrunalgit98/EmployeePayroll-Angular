@@ -3,8 +3,7 @@ import { Router } from '@angular/router';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
 import { ActivatedRoute } from '@angular/router';
-import { NgxSliderModule } from '@angular-slider/ngx-slider/slider.module';
-
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -12,16 +11,18 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider/slider.module';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent {
+ 
+
   tempArr : Array<any> =[];
   depart2: any = ["HR", "Sales", "Engineer", "Finance", "Other"];
+
+  Id:any = this.route.snapshot.paramMap.get("Id");
+
   constructor(private router:Router,private empService:EmployeeService,private route:ActivatedRoute) { }
 
     employee: Employee = new Employee("", new Date," ","", [], "",0);
-    // getVal(value: any) {
-    //   console.log(value);
-    //   this.employee.department = value();
-    // }
-  
+
+ 
 
     checkBoxChange(dptname:any){
 
@@ -36,17 +37,7 @@ export class FormComponent {
       }
     }
   
-
-    formatLabel(value: number) {
-      if (value >= 1000) {
-        return Math.round(value / 1000) + 'k';
-      }
-  
-      return value;
-    }
-  
-
-
+ 
 onSubmit(){
   console.log(this.employee);
     this.employee.department=this.tempArr;
@@ -63,16 +54,30 @@ onSubmit(){
 
  }
 
- 
+ updateEmployeeData() {
+   this.employee.department = this.tempArr;
+  this.empService.updateEmployeeById(this.employee, this.Id).subscribe((data: any) => {
+  this.router.navigate(["dashboard"]);
+  });
+
+ }
+ngOnInit(): void {
+  
+  this.getEmployeeById(); 
 
 }
 
+getEmployeeById(){    
+  
+ 
+  this.empService.getEmployeeById(this.Id).subscribe((data:any) => {
+    console.log(data);
+    this.employee = data;
+    
+    
+  });
 
-// addEmployee() {
-//   console.log(this.employee);
-//   this.employee.department = this.tempArr;
-//   //subscribe is used to add data in the db from the constructor
-//   this.employeeService.insertEmployee(this.employee).subscribe((data: any) => {
-//     this.router.navigate(["dashboard"]);
-//   });
-// }
+
+}
+}
+
